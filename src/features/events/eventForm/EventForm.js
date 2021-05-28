@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Segment,  Header, Form, Button, StepTitle  } from "semantic-ui-react";
+import { Segment,  Header, Form, Button } from "semantic-ui-react";
 import cuid from "cuid";
+import { Link } from "react-router-dom";
 
 export default function EventForm({setFormOpen, setEvents, createEvent, selectedEvent, updateEvent }) {
     const initialValues = selectedEvent ?? {
@@ -67,7 +68,7 @@ export default function EventForm({setFormOpen, setEvents, createEvent, selected
                     onChange={(e) => handleInputChange(e)}/>
                 </Form.Field>
                 <Button type="submit" floated="right" positive content="Submit" />
-                <Button onClick={() => setFormOpen(false)} type="submit" floated="right"  content="Cancel" />
+                <Button as={Link} to="/events" type="submit" floated="right"  content="Cancel" />
             </Form>
         </Segment>
     )
