@@ -28,7 +28,7 @@ export default function EventListItem ({event}) {
                 <span> 
                 {/* use of date-fns to change the format of the date to a string */}
                     <Icon name="clock" /> {format (event.date, "MMMM d, yyyy" )}  
-                    <Icon name="marker" /> {event.venue}
+                    <Icon name="marker" /> {event.venue.address}
                 </span>
             </Segment>
             <Segment secondary>

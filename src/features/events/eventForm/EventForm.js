@@ -1,3 +1,4 @@
+/* global google */
 import React from "react";
 import { Segment,  Header, Button} from "semantic-ui-react";
 import cuid from "cuid";
@@ -11,6 +12,7 @@ import MyTextArea from "../../../app/common/form/MyTextArea";
 import MySelectInput from "../../../app/common/form/MySelectInput";
 import { categoryData } from "../../../app/api/categoryOptions";
 import MyDateInput from "../../../app/common/form/MyDateInput";
+import MyPlaceInput from "../../../app/common/form/MyPlaceInput";
 
 export default function EventForm({ match, history }) {
     const dispatch = useDispatch();
@@ -19,17 +21,27 @@ export default function EventForm({ match, history }) {
     const initialValues = selectedEvent ?? {
         title: "",
         category: "",
-        city: "",
+        city: {
+            address: "",
+            latLng: null
+        },
         description: "",
-        venue: "",
+        venue: {
+            address: "",
+            latLng: null
+        },
         date: ""    
     }
     const validationSchema = Yup.object({
         title: Yup.string().required(),
         category: Yup.string().required(),
         description: Yup.string().required(),
-        city: Yup.string().required(),
-        venue: Yup.string().required(),
+        city: Yup.object().shape({
+            address: Yup.string().required("city is a required field")
+        }),
+        venue: Yup.object().shape({
+            address: Yup.string().required("venue is a required field")
+        }),
         date: Yup.string().required()
     })
     return (
@@ -50,23 +62,32 @@ export default function EventForm({ match, history }) {
                 history.push("/events");
             }}
             >
-                {({isSubmitting, dirty, isValid}) => (
+                {({isSubmitting, dirty, isValid, values}) => (
                     <Form className="ui form" >
                     <Header sub color="teal" content= "Event details" />
                         <MyTextInput name="title" placeholder="Event title" />
                         <MySelectInput name="category" placeholder="Category" options={categoryData} />
-
-                        <Header sub color="teal" content= "Location details" />
                         <MyTextArea name="description" placeholder="Description" rows="3" />
-                        <MyTextInput name="city" placeholder="City" />
-                        <MyTextInput name="venue" placeholder="Venue" />
+                        <Header sub color="teal" content= "Location details" />               
+                        <MyPlaceInput name="city" placeholder="City" />
+                        <MyPlaceInput 
+                            name="venue" 
+                            disabled={!values.city.latLng}
+                            placeholder="Venue"
+                            options={{
+                                location: new google.maps.LatLng(values.city.latLng),
+                                radius: 1000,
+                                types: ["establishment"]
+                            }}
+                            />
                         <MyDateInput 
-                        name="date" 
-                        placeholderText="Event date"
-                        timeFormat="HH:mm"
-                        showTimeSelect
-                        timeCaption="time" 
-                        dateFormat="MMMM d, yyyy h:mm a" />
+                            autoComplete="off"
+                            name="date" 
+                            placeholderText="Event date"
+                            timeFormat="HH:mm"
+                            showTimeSelect
+                            timeCaption="time" 
+                            dateFormat="MMMM d, yyyy h:mm a" />
                 
                     <Button 
                     loading={isSubmitting} 
