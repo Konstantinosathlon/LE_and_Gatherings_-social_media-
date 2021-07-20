@@ -22,7 +22,7 @@ export default function EventDetailedSidebar({attendees}) {
             <Item.Image size="tiny" src={attendee.photoURL || '/assets/user.png'} />
             <Item.Content verticalAlign="middle">
                 <Item.Header as="h3">
-                    <span>{attendee.displayName} </span>
+                    <span>{attendee.name} </span>
                 </Item.Header>
             </Item.Content>
         </Item>

@@ -8,10 +8,12 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from './app/store/configureStore';
 import ScrollToTop from './app/layout/ScrollToTop';
+import "react-toastify/dist/ReactToastify.min.css";
+import "react-calendar/dist/Calendar.css";
 
 const store = configureStore();
 
-const rootEl =  document.getElementById('root')
+const rootEl =  document.getElementById('root');
 
 function render() {
   ReactDOM.render(
