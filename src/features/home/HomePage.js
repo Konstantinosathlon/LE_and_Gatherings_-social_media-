@@ -7,8 +7,9 @@ export default function HomePage({history}) {
            <Container>
                <Header as="h1" inverted>
                    <Image size="massive" src="/assets/logo.png" style={{marginBottom: 12}} />
-                   Social Groups
+                   Local Events  
                </Header>
+               <h2 className="span" inverted>& Gatherings</h2>
                <Button onClick={() => history.push("/events")} size="huge" inverted>
                    Get Started
                    <Icon name="right arrow" inverted />

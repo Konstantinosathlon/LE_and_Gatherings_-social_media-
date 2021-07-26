@@ -45,7 +45,7 @@ export default function LoginForm() {
                                 type="submit"
                                 fluid
                                 size="large"
-                                color="teal"
+                                style={{color: "white", backgroundColor: "rgb(20, 100, 56)"}}
                                 content="Login"
                                 />
                             <Divider horizontal >or</Divider>

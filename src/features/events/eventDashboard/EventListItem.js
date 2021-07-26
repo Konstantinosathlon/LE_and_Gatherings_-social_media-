@@ -52,9 +52,14 @@ export default function EventListItem ({event}) {
                 floated="right" 
                 content="delete" />
                 <Button as={Link} to={`/events/${event.id}`} 
-                color="teal" 
+                style={{backgroundColor: "rgb(20, 100, 56)", color: "white" }} 
+                // color="white"
+                // floated="right" 
+                // content="view"
+                
                 floated="right" 
                 content="view" />
+                />
             </Segment>
         </Segment.Group>
     )

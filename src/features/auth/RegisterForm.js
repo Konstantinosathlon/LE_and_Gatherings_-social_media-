@@ -46,7 +46,7 @@ export default function RegisterForm() {
                                 type="submit"
                                 fluid
                                 size="large"
-                                color="teal"
+                                style={{color: "white", backgroundColor: "rgb(20, 100, 56)"}}
                                 content="Register"
                                 />
                             <Divider horizontal >or</Divider>
