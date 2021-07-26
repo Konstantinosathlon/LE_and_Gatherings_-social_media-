@@ -16,7 +16,7 @@ export const sampleData = [
             address: 'Empire State Building, 5th Avenue, New York, NY, USA',
             latLng: {
                 lat: 40.7484405,
-                lng:  -73.98566440000002
+                lng: -73.98566440000002
             }
         },
         hostedBy: 'Bob',

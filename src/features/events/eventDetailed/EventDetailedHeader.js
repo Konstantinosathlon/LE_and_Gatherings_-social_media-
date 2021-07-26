@@ -44,9 +44,9 @@ export default function EventDetailedHeader({event}) {
 
     <Segment attached="bottom">
         <Button>Cancel My Place</Button>
-        <Button color="teal">JOIN THIS EVENT</Button>
+        <Button style={{backgroundColor: "rgb(20, 100, 56)", color: "white"}}>JOIN THIS EVENT</Button>
 
-        <Button as={Link} to={`/manage/${event.id}`} color="orange" floated="right">
+        <Button as={Link} to={`/manage/${event.id}`} style={{backgroundColor: "rgb(123, 223, 120)", color: "white"}} floated="right">
             Manage Event
         </Button>
     </Segment>

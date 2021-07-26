@@ -9,8 +9,7 @@ export default function EventDetailedChat() {
     textAlign="center"
     attached="top"
     inverted
-    color="teal"
-    style={{border: 'none'}}
+    style={{backgroundColor: "rgb(20, 100, 56)", border: 'none'}}
 >
     <Header>Chat about this event</Header>
 </Segment>

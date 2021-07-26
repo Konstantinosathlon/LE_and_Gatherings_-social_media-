@@ -14,13 +14,15 @@ export function asyncActionFinish() {
 }
 export function asyncActionError(error) {
     return {
-        type: ASYNC_ACTION_ERROR
+        type: ASYNC_ACTION_ERROR,
+        payload: error
     }
 }
 const initialState = {
     loading: false,
     error: null
 }
+
 export default function asyncReducer(state = initialState, {type, payload}) {
     switch (type) {
         case ASYNC_ACTION_START:
@@ -35,13 +37,13 @@ export default function asyncReducer(state = initialState, {type, payload}) {
                     loading:false
             };
             case ASYNC_ACTION_ERROR:
-                    return {...state,
+                    return {
+                    ...state,
                     loading: false,
                     error: payload
             };
             default:
                 return state;
-
     }
 }
 
