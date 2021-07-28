@@ -42,3 +42,9 @@ export async function socialLogin(selectedProvider) {
         toast.error(error.message);
         }   
 }
+
+export function updateUserPassword(creds) {
+    // syncronous because the user is already logged
+    const user = firebase.auth().currentUser;
+    return user.updatePassword(creds.newPassword1);
+}
