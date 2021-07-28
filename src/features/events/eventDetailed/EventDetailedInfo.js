@@ -40,7 +40,7 @@ export default function EventDetailedInfo({event}) {
             </Grid.Column>
             <Grid.Column width={4}>
                 <Button onClick={() => setMapVisible(!mapVisible)} 
-                style={{color: "rgb(123, 223, 120)"}} 
+                style={{color: "black"}} 
                 size="tiny" 
                 content={mapVisible? "Hide Map": "Show Map"}/>
             </Grid.Column>

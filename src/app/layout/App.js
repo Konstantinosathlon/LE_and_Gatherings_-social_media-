@@ -10,14 +10,20 @@ import NavBar from "../../features/nav/NavBar";
 import ModalManager from "../common/modals/ModalManager";
 import {ToastContainer} from "react-toastify";
 import ErrorComponent from "../common/error/ErrorComponent";
+import AccountPage from "../../features/auth/AccountPage";
+import { useSelector } from "react-redux";
+import LoadingComponent from "./LoadingComponent";
 
 //<EventDashboard formOpen={formOpen} setFormOpen={setFormOpen} 
   //      selectEvent={handleSelectEvent}
     //    selectedEvent={selectedEvent} />
 function App() {
 const {key} = useLocation();
+const {initialized} = useSelector( state => state.async);
 
   return (
+    !initialized ? <LoadingComponent content="Loading app..." /> :
+  
     <Fragment>
       <ModalManager />
       <ToastContainer position ="bottom-right" hideProgressBar />
@@ -32,6 +38,7 @@ const {key} = useLocation();
               {/* <Route exact path="/sandbox" component={Sandbox} /> */}
               <Route path="/events/:id" component={EventDetailedPage} />
               <Route path={["/createEvent", "/manage/:id"]} component={EventForm} key={key} />
+              <Route path="/account" component={AccountPage} />
               <Route path="/error" component={ErrorComponent} />
             </Container>
           </>
