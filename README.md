@@ -1,6 +1,8 @@
+# Local Events and Gatherings (social media app)
+
+#### Live demo: [link](https://le-gatherings.netlify.app/)
+
 ## Demo Video
-
-
 
 https://user-images.githubusercontent.com/79989252/126983289-c9c22d3e-be01-4d0f-b8e3-743debaaa954.mp4
 
